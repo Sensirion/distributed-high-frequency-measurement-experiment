@@ -1,8 +1,12 @@
-# Electron Flow Viewer
+# [Experiment] Distributed High Frequency Measurement
 
-This demonstration aims to provide a high frequency acquisition setup for flow sensors.
+> This experiment is provided **as-is with no support or guarantees**. It is shared for educational purposes and we hope it sparks your interest and maybe help you. A Hackster.io article is further documenting what we tried to achieve.
+
+It aims to provide a high frequency acquisition setup for flow sensors.
 The setup is based on [_gRPC_](https://grpc.io/) (Remote Procedure Call) and utilizes several independant components detailed after.
 The components can communicate through a standard IP network.
+
+![app-screenshot](./resources/screenshots/appscreenshot.png)
 
 #### Server
 
@@ -90,7 +94,7 @@ If there are updates in the protobuf protocol definition, you need to check if y
 
 # Local gRPC Server for testing
 
-There is a minimal JavaScript implementation of a gRPC server in the subfolder `dummy-gRPC-server` which can be used for testing. See  `dummy-gRPC-server/README.md`.
+There is a minimal JavaScript implementation of a gRPC server in the subfolder `dummy-gRPC-server` which can be used for testing. See `dummy-gRPC-server/README.md`.
 You can also run the C-implementation of the server locally.
 
-The server address is defined in  `src/ts/data_client.ts`.
+The server address is defined in `src/ts/data_client.ts`.
