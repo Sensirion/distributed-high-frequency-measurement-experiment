@@ -1,0 +1,17 @@
+[Unit]
+Description=MKT-SW Flow Reader
+After=time-sync.target
+
+[Service]
+Restart=on-failure
+RestartSec=15
+ExecStart=/home/pi/flow_reader --use_sensor true
+WorkingDirectory=/home/pi
+SyslogIdentifier=yafsdv
+User=pi
+Group=pi
+Nice=-20
+
+[Install]
+WantedBy=multi-user.target
+

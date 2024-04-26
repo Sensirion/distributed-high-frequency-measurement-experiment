@@ -1,0 +1,74 @@
+syntax = "proto3";
+package fs_data_logger;
+
+message ClientRegistrationRequest {
+}
+
+message StartDataAcquisitionRequest {
+  uint32 client_id = 1;
+}
+
+message StopDataAcquisitionRequest {
+  uint32 client_id = 1;
+}
+
+message QueryRuntimeStatisticsRequest {
+  uint32 client_id = 1;
+}
+
+
+message MeasurementRecord {
+  uint64 timestamp = 1;
+  float flow = 2;
+}
+
+
+enum Status{
+    OK = 0;
+    ERROR = 1;
+};
+
+message DataLoggerStatus
+{
+    Status status = 1;
+}
+
+message Client {
+  uint32 client_id = 1;
+  string sensor_name = 2;
+  string signal_name = 3;
+  string signal_unit = 4;
+  uint32 sampling_frequency_milli_hz = 5;
+}
+
+message RuntimeStatistics {
+  uint32 max_readout_time_us = 1;
+  uint32 min_readout_time_us = 2;
+  double avg_readout_time_us = 3;
+  uint64 number_of_samples_since_start = 4;
+}
+
+// A simple data acquisition service.
+//
+// The service can be queried about the data it can acquire and it can be started and stopped
+service DataAcquisitionService
+{
+  // Register a new client for the data acquisition service
+  //
+  // The returned client ID must be supplied with each start/stop request
+  rpc RegisterClient(ClientRegistrationRequest) returns (Client);
+  // A server-to-client streaming RPC.
+  //
+  // Obtains the Measurement data from the flow sensor.  Results are
+  // streamed rather than returned at once
+  //
+  rpc StartDataAcquisition(StartDataAcquisitionRequest) returns (stream MeasurementRecord);
+
+  // Stop the running data acquisition
+  // returns true if the data acquisition is stopped
+  rpc StopDataAcquisition(StopDataAcquisitionRequest) returns (DataLoggerStatus);
+
+  // Query some runtime statistics since the last start of the sensor
+  // For the simulation the statistics will be empty
+  rpc QueryRuntimeStatistics(QueryRuntimeStatisticsRequest) returns (RuntimeStatistics);
+}

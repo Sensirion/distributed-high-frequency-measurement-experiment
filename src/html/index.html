@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' https://cdn.plot.ly"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <title>Focus days 2nd ed.</title>
+  </head>
+  <body>
+    <div class="top-section">
+      <img
+        src="../../resources/logos/sensirion_logo.svg"
+        alt="Sensirion logo"
+        class="branding-logo"
+      />
+      <h1>Flow viewer</h1>
+    </div>
+    <div class="plot-area">
+      <div id="plot"></div>
+    </div>
+    <div class="bottom-toolbox">
+      <div class="toolbox-section">
+        <h4 class="vert-label">Toolbox</h4>
+        <div class="toolbox-section-content">
+          <div class="row">
+            <button id="startstop">Connect</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="toolbox-section">
+        <h4 class="vert-label">INFOS</h4>
+        <div class="toolbox-section-content">
+          <div class="row info key-value-pair">
+            <div class="key">State</div>
+            <div class="value" id="connStatus">-</div>
+          </div>
+
+          <div class="row info key-value-pair">
+            <div class="key">Host</div>
+            <div class="value" id="hostname">-</div>
+          </div>
+
+          <div class="row info key-value-pair">
+            <div class="key">Sensor</div>
+            <div class="value" id="sensorType">-</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="../js/settings.js"></script>
+<script src="../js/renderer.js"></script>
+
+<script src="https://cdn.plot.ly/plotly-2.30.0.min.js" charset="utf-8"></script>

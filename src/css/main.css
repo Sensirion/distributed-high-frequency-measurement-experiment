@@ -1,0 +1,143 @@
+@font-face {
+  font-family: "General Grotesque";
+  src: url("../../resources/fonts/GeneralGrotesque/GeneralGrotesque-Regular.otf");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "General Grotesque";
+  src: url("../../resources/fonts/GeneralGrotesque/GeneralGrotesque-Demi.otf");
+  font-style: demi;
+}
+
+body {
+  background-color: #f2f2f2;
+  color: black;
+  margin: 0px;
+  font-family: General Grotesque;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.top-section {
+  box-shadow: inset #d6d6d6 0px 4px 12px;
+  color: rgb(197, 197, 197);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 10vh;
+}
+
+.top-section h1 {
+  margin: 5px 15px;
+  color: #c7c7c7;
+  letter-spacing: 0.1em;
+  text-shadow: -1px -1px 1px #b3b3b3, 2px 2px 1px #ebebeb;
+}
+
+.branding-logo {
+  height: 60px;
+}
+
+.plot-area {
+  height: 70vh;
+  padding: 1vh 2vw;
+}
+
+.js-plotly-plot {
+  height: 68vh !important;
+}
+
+.bottom-toolbox {
+  background-color: #fcfcfc;
+  box-shadow: inset #d6d6d6 0px 3px 10px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.toolbox-section {
+  display: flex;
+}
+
+.toolbox-section-content {
+  padding-top: 7px;
+  margin: 0px 5px;
+}
+
+.toolbox-section-content .info {
+  font-size: small;
+}
+
+.bottom-toolbox .vert-label {
+  margin: 5px;
+  color: #c7c7c7;
+  letter-spacing: 0.1em;
+  text-shadow: -0.5px -0.5px 0.5px #b3b3b3, 1px 1px 0.5px #ebebeb;
+  transform: rotate(180deg);
+  writing-mode: vertical-lr;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.bottom-toolbox .row {
+  padding: 0.1rem 0.5rem;
+}
+
+.key-value-pair {
+  display: flex;
+  flex-direction: column;
+}
+
+.key-value-pair .key {
+  font-size: xx-small;
+  color: #969696;
+  text-transform: uppercase;
+}
+
+.key-value-pair .value {
+  font-size: small;
+  color: #1d1d1d;
+}
+
+button {
+  background-color: #ffffff;
+  border: 0;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  color: #111827;
+  font-family: "General Grotesque";
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  padding: 0.35rem 0.75rem;
+  text-align: center;
+  text-decoration: none #d1d5db solid;
+  text-decoration-thickness: auto;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:hover:enabled {
+  background-color: rgb(249, 250, 251);
+}
+
+button:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+button:focus-visible {
+  box-shadow: none;
+}
+
+button:disabled {
+  color: #999999;
+  background-color: rgb(249, 250, 251);
+  cursor: not-allowed;
+}

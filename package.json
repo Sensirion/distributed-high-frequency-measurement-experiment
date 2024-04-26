@@ -1,0 +1,30 @@
+{
+  "name": "electron-flow-viewer",
+  "version": "1.0.0",
+  "description": "A flow viewer prototype created by mkt-sw",
+  "main": "build/js/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -r build/* || true",
+    "compile": "tsc && cp -a src/html build/ && cp -a src/css build/",
+    "start": "electron .",
+    "lint": "eslint . --ext .ts",
+    "compstart": "npm run clean && npm run compile && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.sensirion.lokal:MSO-SW/experiments/electron-flow-viewer.git"
+  },
+  "author": "MKT-SW",
+  "license": "ISC",
+  "devDependencies": {
+    "@grpc/grpc-js": "^1.10.5",
+    "@types/plotly.js": "^2.29.2",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "electron": "^29.1.5",
+    "eslint": "^8.57.0",
+    "google-protobuf": "^3.21.2",
+    "typescript": "^5.4.3"
+  }
+}
